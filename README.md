@@ -1,4 +1,13 @@
 # hackillinois-webapp
+Homepage for the API:
+https://climate.com/static/dev-portal/#item=home&view=markdown
+
+Here we need to install sbt for MacOS:
+http://www.scala-sbt.org/0.13/docs/Installing-sbt-on-Mac.html
+and vagrant to run scala:
+https://www.vagrantup.com/docs/installation/
+
+And for the map, we could perhaps use the recommended one: http://leafletjs.com/
 
 ### Quick Start
 
