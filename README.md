@@ -1,4 +1,8 @@
 # hackillinois-webapp
+This program just realized the login page for the Climate Corp Website, you could ask the mentor in the second floor to finally get the map vision.
+And for questions like scala, and flask, please feel free to use the amazing tools offered by HackIllinois:
+https://mentor.hackillinois.org/
+
 Homepage for the API:
 https://climate.com/static/dev-portal/#item=home&view=markdown
 
