@@ -1,5 +1,6 @@
 # hackillinois-webapp
 This program just realized the login page for the Climate Corp Website, you could ask the mentor in the second floor to finally get the map vision.
+
 And for questions like scala, and flask, please feel free to use the amazing tools offered by HackIllinois:
 https://mentor.hackillinois.org/
 
@@ -12,6 +13,13 @@ and vagrant to run scala:
 https://www.vagrantup.com/docs/installation/
 
 And for the map, we could perhaps use the recommended one: http://leafletjs.com/
+
+You also might need Flask to hook up with the frontend and the backend:
+http://flask.pocoo.org/docs/0.10/installation/
+
+Tutorial below:
+http://flask.pocoo.org/docs/0.10/tutorial/
+
 
 ### Quick Start
 
