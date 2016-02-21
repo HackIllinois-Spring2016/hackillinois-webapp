@@ -22,10 +22,10 @@
 var map;
 function initMap() {
 	  $.getJSON( "/shiloh_field.json", function( data ){
-		var yy = data["fields"][0]["boundary"]["coordinates"][0];
+		var yy = data["fields"][0]["boundary"]["coordinates"];
         map = new google.maps.Map(document.getElementById('map'), {
-		      zoom: 10,
-			      center: {lat: 33.6053509526, lng: -101.8225212354}
+		      zoom: 15,
+			      center: {lat: yy[0][0][1], lng: yy[0][0][0]}
 			    });
 
 	    // NOTE: This uses cross-domain XHR, and may not work on older browsers.
