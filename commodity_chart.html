@@ -30,9 +30,9 @@
 var map;
 function initMap() {
     
-	  $.getJSON( "climate_data.json", function( data ){
+	  $.getJSON( "shiloh_field.json", function( data ){
 		var yy = data["fields"][0]["boundary"]["coordinates"];
-        uluru = {lat: 41.13337455694921, lng: -100.42025977650884}
+        uluru = {lat: yy[0][0][1], lng: yy[0][0][0]}
           ;
         map = new google.maps.Map(document.getElementById('map'), {
 		      zoom: 10,
@@ -42,7 +42,7 @@ function initMap() {
 
   var marker = new google.maps.Marker({
 
-    position: {lat: 41.13337455694921, lng: -100.42025977650884},
+    position: {lat: yy[0][0][1], lng: yy[0][0][0]},
     map: map,
     title: 'Uluru (Ayers Rock)'
   });
