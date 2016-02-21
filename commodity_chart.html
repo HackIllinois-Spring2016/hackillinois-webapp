@@ -51,7 +51,11 @@ function initMap() {
     
 var infowindow = new google.maps.InfoWindow({
 
-    content: '<div id="chartdiv" style="width:500px; height:300px; font-size: 11px"></div>'
+    content: '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Future Goods Price Fluctuation Curve</h1>'+
+      '<div id="chartdiv" style="width:500px; height:300px; font-size: 11px"></div>'
 
   }); 
 google.maps.event.addListener(infowindow, 'domready', function(){
