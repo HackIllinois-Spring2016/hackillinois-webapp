@@ -4,6 +4,9 @@ This program just realized the login page for the Climate Corp Website, you coul
 And for questions like scala, and flask, please feel free to use the amazing tools offered by HackIllinois:
 https://mentor.hackillinois.org/
 
+For the stock price, we could fetch the data from:
+https://www.quandl.com/blog/api-for-commodity-data
+
 Homepage for the API:
 https://climate.com/static/dev-portal/#item=home&view=markdown
 
