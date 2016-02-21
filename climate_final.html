@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	  <head>
+      <link rel="stylesheet" href="amcharts/style.css" type="text/css">
+
+        <script src="amcharts/amcharts.js" type="text/javascript"></script>
+        <script src="amcharts/serial.js" type="text/javascript"></script>
+        <script src="amcharts/amstock.js" type="text/javascript"></script>
+        <script src="commodity_analysis.js" type="text/javascript">  
+        </script>
+	  	<script src="/script/jquery-2.2.0.min.js"></script>
+		      <title>Data Layer: Simple</title>
+			      <meta name="viewport" content="initial-scale=1.0">
+				      <meta charset="utf-8">
+					      <style>
+      html, body {
+		          height: 100%;
+					          margin: 0;
+								          padding: 0;
+											        }
+	        #map {
+				        height: 100%;
+							      }
+			    </style>
+				  </head>
+				    <body>
+                  <div id="map"></div>
+					<script>
+
+var map;
+function initMap() {
+    
+	  $.getJSON( "climate_data.json", function( data ){
+		var yy = data["fields"][0]["boundary"]["coordinates"];
+        uluru = {lat: 41.13337455694921, lng: -100.42025977650884}
+          ;
+        map = new google.maps.Map(document.getElementById('map'), {
+		      zoom: 10,
+			      center: uluru
+			    });
+         
+
+  var marker = new google.maps.Marker({
+
+    position: {lat: 41.13337455694921, lng: -100.42025977650884},
+    map: map,
+    title: 'Uluru (Ayers Rock)'
+  });
+  marker.addListener('click', function() {
+    console.log('click')
+    
+var infowindow = new google.maps.InfoWindow({
+
+    content: '<div id="chartdiv" style="width:500px; height:300px; font-size: 11px"></div>'
+
+  }); 
+google.maps.event.addListener(infowindow, 'domready', function(){
+  var div = document.getElementById('chartdiv')
+  console.log(div);
+
+  chart.write('chartdiv');  
+});
+
+ infowindow.open(map, marker);
+   
+});
+	    // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+		var Obj = {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "letter": "G",
+          "color": "blue",
+          "rank": "7",
+          "ascii": "71"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": yy        
+        }
+    }
+    ]
+  };
+	    map.data.addGeoJson(Obj);
+	    map.data.setStyle(function(feature) {
+    var color = 'gray';
+    if (feature.getProperty('isColorful')) {
+      color = feature.getProperty('color');
+    }
+    return /** @type {google.maps.Data.StyleOptions} */({
+      fillColor: color,
+      strokeColor: color,
+      strokeWeight: 2
+    });
+  });
+
+  // When the user clicks, set 'isColorful', changing the color of the letters.
+  map.data.addListener('click', function(event) {
+    event.feature.setProperty('isColorful', true);
+  });
+
+  // When the user hovers, tempt them to click by outlining the letters.
+  // Call revertStyle() to remove all overrides. This will use the style rules
+  // defined in the function passed to setStyle()
+  map.data.addListener('mouseover', function(event) {
+    map.data.revertStyle();
+    map.data.overrideStyle(event.feature, {strokeWeight: 8});
+  });
+
+  map.data.addListener('mouseout', function(event) {
+    map.data.revertStyle();
+  });
+	  });
+	    // Color each letter gray. Change the color when the isColorful property
+  // is set to true.
+
+}
+
+    </script>
+	    <script async defer
+			           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp4CuUSByvMqw0kKZYf-D7du7cxFHcLtQ&callback=initMap"></script>
+		
+		  </body>
+</html>
+
